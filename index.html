@@ -1,0 +1,21 @@
+<script src="raf-scrub.js"></script>
+<style>
+#target {
+  width: 100px;
+  height: 100px;
+  background: steelblue;
+  position: absolute;
+  left: calc(50vw - 50px);
+  top: calc(50vh - 50px);
+  will-change: transform;
+}
+</style>
+<div id="target"></div>
+<script>
+function loop(t) {
+  t = t / 1000;
+  target.style.transform = 'rotate(' + (Math.cos(t) * 360) + 'deg)';
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+</script>
